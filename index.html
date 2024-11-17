@@ -1,0 +1,404 @@
+<html><head>
+<meta charset="UTF-8">
+<title>ekz3ma</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+<style>
+:root {
+  --primary: #ff0844;
+  --secondary: #1a1a1a;
+  --text: #ffffff;
+  --accent: #ff4466;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--secondary);
+  color: var(--text);
+  font-family: 'Courier New', monospace;
+  overflow-x: hidden;
+}
+
+.glitch-container {
+  position: relative;
+}
+
+.glitch {
+  font-size: 3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0.05em 0 0 #ff0000, -0.05em -0.025em 0 #0000ff;
+  animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 #ff0000, -0.05em -0.025em 0 #0000ff;
+  }
+  25% {
+    text-shadow: -0.05em -0.025em 0 #ff0000, 0.025em 0.025em 0 #0000ff;
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 #ff0000, -0.05em -0.025em 0 #0000ff;
+  }
+  75% {
+    text-shadow: -0.05em -0.05em 0 #ff0000, -0.025em -0.025em 0 #0000ff;
+  }
+  100% {
+    text-shadow: -0.025em 0 0 #ff0000, -0.025em -0.025em 0 #0000ff;
+  }
+}
+
+.nav-container {
+  background-color: rgba(26, 26, 26, 0.9);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-links a:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 8, 68, 0.4),
+    transparent
+  );
+  transition: all 0.5s;
+}
+
+.nav-links a:hover::before {
+  left: 100%;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section {
+  display: none;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lang-switch {
+  position: fixed;
+  right: 20px;
+  background: var(--primary);
+  border: none;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+}
+
+.lang-switch:hover {
+  background: var(--accent);
+  transform: scale(1.1);
+}
+
+.projects-grid {
+  font-size: 1.4em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  border: 1px solid var(--primary);
+  padding: 1rem;
+  background: rgba(255, 8, 68, 0.1);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 8, 68, 0.3);
+}
+
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#contacts {
+  font-size: 1.4em;
+  font-weight: bold;
+  position: relative;
+}
+
+#contacts a {
+  color: white;
+}
+
+#contacts a:hover {
+  text-transform: uppercase;
+  text-shadow: 0.05em 0 0 #ff0000, -0.05em -0.025em 0 #0000ff;
+  animation: glitch 1s infinite;
+}
+
+#about {
+  color: white;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+</style>
+</head>
+<body>
+
+<canvas class="matrix-bg" id="matrix"></canvas>
+
+<nav class="nav-container">
+  <div class="nav-links">
+    <a href="#about" onclick="showSection('about')" class="about-me">Обо мне</a>
+    <a href="#contacts" onclick="showSection('contacts')" class="contacts-class">Контакты</a>
+    <a href="#projects" onclick="showSection('projects')" class="projects-class">Проекты</a>
+  </div>
+</nav>
+
+<button class="lang-switch" onclick="toggleLanguage()">EN</button>
+
+<div class="content">
+  <div class="glitch-container">
+    <h1 class="glitch" data-ru="ekz3ma" data-en="ekz3ma">ekz3ma</h1>
+  </div>
+
+  <div id="about" class="section active" data-ru="about-ru" data-en="about-en">
+    <h2 class="about-me-class">Обо мне</h2>
+    <p class="description-about-me">Привет, меня зовут ekz3ma и я специализируюсь на профессиональной python-разработке вот уже 4 года. 
+    Создаю парсеры, ботов, сайты, лендинги и прочее.</p>
+  </div>
+
+  <div id="contacts" class="section" data-ru="contacts-ru" data-en="contacts-en">
+    <h2 class="contacts-class-h">Контакты</h2>
+    <a href="https://gmail.com">pavelgolovin444@gmail.com</a>
+    <a href="https://t.me/ekz3ma_tg">telegram</a>
+    <a href="https://github.com/ekz3ma">github</a>
+    <a href="https://www.fiverr.com/users/spec1alist">fiverr</a>
+  </div>
+
+  <div id="projects" class="section" data-ru="projects-ru" data-en="projects-en">
+    <h2 class="projects-class-h">Проекты</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3 class="bot-shop">Бот-магазин</h3>
+          <div class="bot-shop-description">
+            <li class="platform-tg">Платформа: Телеграм</li>
+            <li class="pl-python">ЯП: python</li>
+            <li class="lib-sql">Библиотека: Aiogram3, sqlite</li>
+            <li class="purpose-order">Цель: Заказ</li>
+          </div>
+      </div>
+      <div class="project-card">
+        <h3 class="bot-visitka">Информационный бот для юридической фирмы</h3>
+        <div class="bot-visitka-description">
+          <li class="platform-tg">Платформа: Телеграм</li>
+          <li class="pl-python">ЯП: python</li>
+          <li class="lib-aiogram">Библиотека: Aiogram3</li>
+          <li class="purpose-order">Цель: Заказ</li>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3 class="site-visitka">Сайт-визитка для рекламного агенства</h3>
+        <div class="site-visitka-description">
+          <li class="platform-www">Платформа: Всемирная паутина</li>
+          <li class="site-visitka-pl">ЯП: python, html/css, JavaScript</li>
+          <li class="lib-django">Библиотека: django</li>
+          <li class="purpose-order">Цель: Заказ</li>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3 class="parser">Бот-парсер и автопостер</h3>
+        <div class="parser-description">
+          <li class="platform-tg">Платформа: Телеграм</li>
+          <li class="pl-python">ЯП: python</li>
+          <li class="lib-bs4">Библиотека: beautifulsoup4, pyrogram</li>
+          <li class="purpose-for-me">Цель: Личный</li>
+        </div>
+      </div>
+  </div>
+</div>
+
+<script>
+const translations = {
+  en: {
+    about: "About Me",
+    contacts: "Contacts",
+    projects: "Projects",
+    title: "ekz3ma",
+    aboutContent: "Hi, my name is ekz3ma and I have been specializing in professional python development for 4 years now. I create parsers, bots, websites, landing pages, and more.",
+    projectsTitle: "Projects",
+    botShop: "Shop-bot",
+    botVisitka: "Information bot for a law firm",
+    siteVisitka: "Business card website for an advertising agency",
+    parser: "Bot parser and autoposter",
+    platformTg: "Platform: Telegram",
+    plPython: "PL: Python",
+    purposeOrder: "Purpose: Order",
+    libBs4: "LIB: beautifulsoup4, pyrogram",
+    libDjango: "LIB: django",
+    platformWWW: "Platform: World Wide Web",
+    siteVisitkaPl: "PL: python, html/css, JavaScript",
+    purposeForMe: "Purpose: Personal",
+    libSqlite: "LIB: Aiogram3, sqlite",
+    libAiogram: "LIB: Aiogram3",
+  },
+  ru: {
+    about: "Обо мне",
+    contacts: "Контакты",
+    projects: "Проекты",
+    title: "ekz3ma",
+    aboutContent: "Привет, меня зовут ekz3ma и я специализируюсь на профессиональной python-разработке вот уже 4 года. Создаю парсеры, ботов, сайты, лендинги и прочее.",
+    projectsTitle: "Проекты",
+    botShop: "Бот-магазин",
+    botVisitka: "Информационный бот для юридической фирмы",
+    siteVisitka: "Сайт-визитка для рекламного агенства",
+    parser: "Бот-парсер и автопостер",
+    platformTg: "Платформа: Телеграм",
+    plPython: "ЯП: Python",
+    purposeOrder: "Цель: Заказ",
+    libBs4: "Библиотека: beautifulsoup4, pyrogram",
+    libDjango: "Библиотека: django",
+    platformWWW: "Платформа: Всемирная паутина",
+    siteVisitkaPl: "ЯП: python, html/css, JavaScript",
+    purposeForMe: "Цель: Личный",
+    libSqlite: "Библиотека: Aiogram3, sqlite",
+    libAiogram: "Библиотека: Aiogram3",
+  }
+};
+
+let currentLang = 'ru';
+
+function toggleLanguage() {
+  currentLang = currentLang === 'ru' ? 'en' : 'ru';
+  updateContent();
+  document.querySelector('.lang-switch').textContent = currentLang === 'ru' ? 'EN' : 'RU';
+}
+
+function updateContent() {
+  document.querySelector('.glitch').textContent = translations[currentLang].title;
+  document.querySelector('.about-me').textContent = translations[currentLang].about;
+  document.querySelector('.contacts-class').textContent = translations[currentLang].contacts;
+  document.querySelector('.projects-class').textContent = translations[currentLang].projects;
+  document.querySelector('.about-me-class').textContent = translations[currentLang].about;
+  document.querySelector('.description-about-me').textContent = translations[currentLang].aboutContent;
+  document.querySelector('.contacts-class-h').textContent = translations[currentLang].contacts;
+  document.querySelector('.projects-class-h').textContent = translations[currentLang].projectsTitle;
+  document.querySelector('.bot-shop').textContent = translations[currentLang].botShop;
+  document.querySelectorAll('.platform-tg').forEach(elem => elem.textContent = translations[currentLang].platformTg);
+  document.querySelectorAll('.pl-python').forEach(elem => elem.textContent = translations[currentLang].plPython);
+  document.querySelectorAll('.purpose-order').forEach(elem => elem.textContent = translations[currentLang].purposeOrder);
+  document.querySelector('.bot-visitka').textContent = translations[currentLang].botVisitka;
+  document.querySelector('.site-visitka').textContent = translations[currentLang].siteVisitka;
+  document.querySelector('.parser').textContent = translations[currentLang].parser;
+  document.querySelector('.lib-bs4').textContent = translations[currentLang].libBs4;
+  document.querySelector('.lib-django').textContent = translations[currentLang].libDjango;
+  document.querySelector('.platform-www').textContent = translations[currentLang].platformWWW;
+  document.querySelector('.site-visitka-pl').textContent = translations[currentLang].siteVisitkaPl;
+  document.querySelector('.purpose-for-me').textContent = translations[currentLang].purposeForMe;
+  document.querySelector('.lib-sql').textContent = translations[currentLang].libSqlite;
+  document.querySelector('.lib-aiogram').textContent = translations[currentLang].libAiogram;
+}
+
+function showSection(sectionId) {
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.remove('active');
+  });
+  document.getElementById(sectionId).classList.add('active');
+}
+
+// Matrix background effect
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const nums = '0123456789';
+const alphabet = katakana + latin + nums;
+
+const fontSize = 16;
+const columns = canvas.width/fontSize;
+
+const rainDrops = [];
+
+for( let x = 0; x < columns; x++ ) {
+    rainDrops[x] = 1;
+}
+
+const draw = () => {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.fillStyle = '#ff0844';
+    ctx.font = fontSize + 'px monospace';
+
+    for(let i = 0; i < rainDrops.length; i++) {
+        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+        ctx.fillText(text, i*fontSize, rainDrops[i]*fontSize);
+        
+        if(rainDrops[i]*fontSize > canvas.height && Math.random() > 0.975){
+            rainDrops[i] = 0;
+        }
+        rainDrops[i]++;
+    }
+};
+
+setInterval(draw, 30);
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
+
+</body>
+</html>
