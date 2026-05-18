@@ -19,6 +19,11 @@ body {
   overflow-x: hidden;
 }
 
+a {
+	text-decoration: none;
+	color: #FFF;
+}
+
 .glitch-container {
   position: relative;
 }
@@ -188,6 +193,202 @@ body {
   font-size: 1.4em;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, #fff, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.hero .tag {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.hero .description {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    opacity: 0.9;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary);
+}
+
+.service-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 8, 68, 0.3);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.service-card p {
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+}
+
+.service-list {
+    text-align: left;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.service-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.service-list li::before {
+    content: "✓";
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.about {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    padding: 3rem;
+    margin: 4rem 0;
+    backdrop-filter: blur(10px);
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.tech {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.tech h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.tech-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+    background: var(--primary);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -202,151 +403,186 @@ body {
   </div>
 </nav>
 
-<button class="lang-switch" onclick="toggleLanguage()">EN</button>
-
 <div class="content">
-  <div class="glitch-container">
-    <h1 class="glitch" data-ru="ekz3ma" data-en="ekz3ma">ekz3ma</h1>
-  </div>
-
   <div id="about" class="section active" data-ru="about-ru" data-en="about-en">
-    <h2 class="about-me-class">Обо мне</h2>
-    <p class="description-about-me">Привет, меня зовут ekz3ma и я специализируюсь на профессиональной python-разработке вот уже 4 года. 
-    Создаю парсеры, ботов, сайты, лендинги и прочее.</p>
+    <p class="description-about-me"><div class="container">
+        <!-- Hero секция -->
+        <div class="hero">
+              <div class="glitch-container">
+              	<h1 class="glitch" data-ru="ekz3ma" data-en="ekz3ma">ekz3ma</h1>
+        </div>
+            <div class="tag">Python-разработчик | 4 года опыта</div>
+            <p class="description">
+                Превращаю сложные идеи в элегантный код. Создаю парсеры, ботов, сайты и лендинги, 
+                которые работают 24/7 и решают реальные задачи бизнеса.
+            </p>
+        </div>
+
+        <!-- Услуги -->
+        <div class="services">
+            <div class="service-card">
+                <div class="service-icon">🕷️</div>
+                <h3>Парсинг данных</h3>
+                <p>Собираю любые данные из открытых источников, даже с защитой от ботов.</p>
+                <ul class="service-list">
+                    <li>Антидетект-браузеры</li>
+                    <li>Обход капчи</li>
+                    <li>API интеграции</li>
+                    <li>Мониторинг цен</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Telegram Боты</h3>
+                <p>Создаю ботов любой сложности: от простых чат-ботов до CRM-систем.</p>
+                <ul class="service-list">
+                    <li>Aiogram 3.x</li>
+                    <li>Базы данных (SQLite, PostgreSQL)</li>
+                    <li>Платежные системы</li>
+                    <li>Админ-панели</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Сайты & Лендинги</h3>
+                <p>Разрабатываю современные, быстрые и адаптивные веб-проекты.</p>
+                <ul class="service-list">
+                    <li>FastAPI / Django / Flask</li>
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>Адаптивная верстка</li>
+                    <li>SEO-оптимизация</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Обо мне -->
+        <div class="about-to-me">
+            <h2>Почему стоит работать со мной?</h2>
+            <div class="about-to-me-content">
+                <div class="about-to-me-text">
+                    <p>> <strong>Опыт 4 года</strong> — за плечами десятки успешных проектов разной сложности.</p>
+                    <p>> <strong>Чистый код</strong> — пишу так, как будто завтра его будет читать другой разработчик.</p>
+                    <p>> <strong>Соблюдение дедлайнов</strong> — время — деньги, и я это ценю.</p>
+                    <p>> <strong>Поддержка</strong> — не бросаю проект после сдачи, помогаю с доработками.</p>
+                    <p>> <strong>Индивидуальный подход</strong> — не существует «типовых решений», есть решение под вашу задачу.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Успешных проектов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Поддержка</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Конфиденциальность</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">⭐ 5.0</div>
+                        <div class="stat-label">Отзывы клиентов</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Технологии -->
+        <div class="tech">
+            <h2>Стек технологий</h2>
+            <div class="tech-grid">
+                <span class="tech-item">Python</span>
+                <span class="tech-item">Aiogram</span>
+                <span class="tech-item">BeautifulSoup</span>
+                <span class="tech-item">Scrapy</span>
+                <span class="tech-item">Selenium</span>
+                <span class="tech-item">FastAPI</span>
+                <span class="tech-item">Django</span>
+                <span class="tech-item">Flask</span>
+                <span class="tech-item">SQLite</span>
+                <span class="tech-item">PostgreSQL</span>
+                <span class="tech-item">Docker</span>
+                <span class="tech-item">Git</span>
+                <span class="tech-item">HTML5/CSS3</span>
+                <span class="tech-item">JavaScript</span>
+            </div>
+        </div>
+    </div></p>
   </div>
 
   <div id="contacts" class="section" data-ru="contacts-ru" data-en="contacts-en">
     <h2 class="contacts-class-h">Контакты</h2>
-    <a href="https://gmail.com">pavelgolovin444@gmail.com</a>
-    <a href="https://t.me/ekz3ma">telegram</a>
-    <a href="https://github.com/ekz3ma">github</a>
-    <a href="https://www.fiverr.com/users/spec1alist">fiverr</a>
-    <a href="https://www.reddit.com/user/pave1_g/">reddit</a>
+    <div class="contacts-container">
+    	<p>> <a href="https://gmail.com">pavelgolovin444@gmail.com</a></p>
+    	<p>> <a href="https://t.me/ekz3ma">telegram</a></p>
+    	<p>> <a href="https://github.com/ekz3ma">github</a></p>
+    	<p>> <a href="https://kwork.ru/user/ekz3ma">kwork</a></p>
+    	<p>> <a href="https://www.behance.net/ekz3ma">behance</a></p>
+    </div>
   </div>
 
   <div id="projects" class="section" data-ru="projects-ru" data-en="projects-en">
     <h2 class="projects-class-h">Проекты</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <h3 class="bot-shop">Бот-магазин</h3>
-          <div class="bot-shop-description">
-            <li class="platform-tg">Платформа: Телеграм</li>
-            <li class="pl-python">ЯП: python</li>
-            <li class="lib-sql">Библиотека: Aiogram3, sqlite</li>
-            <li class="purpose-order">Цель: Заказ</li>
+        <h3 class="project-name">Shop</h3>
+          <div class="description">
+            <li class="platform">In: Telegram</li>
+            <li class="lang">On: python</li>
+            <li class="lib">Lib: Aiogram3, sqlite</li>
+            <li class="purpose">Purpose: Order</li>
           </div>
       </div>
+
+      <a href="https://t.me/weather_to_city_bot">
       <div class="project-card">
-        <h3 class="bot-visitka">Информационный бот для юридической фирмы</h3>
-        <div class="bot-visitka-description">
-          <li class="platform-tg">Платформа: Телеграм</li>
-          <li class="pl-python">ЯП: python</li>
-          <li class="lib-aiogram">Библиотека: Aiogram3</li>
-          <li class="purpose-order">Цель: Заказ</li>
-        </div>
+        <h3 class="project-name">Weather Bot</h3>
+          <div class="description">
+            <li class="platform">In: Telegram</li>
+            <li class="lang">On: Python</li>
+            <li class="lib">Lib: Aiogram3, Sqlite</li>
+            <li class="purpose">Purpose: Order</li>
+          </div>
       </div>
+      </a>
+
+      <a href="https://ekz3ma.pythonanywhere.com/">
       <div class="project-card">
-        <h3 class="site-visitka">Сайт-визитка для рекламного агенства</h3>
-        <div class="site-visitka-description">
-          <li class="platform-www">Платформа: Всемирная паутина</li>
-          <li class="site-visitka-pl">ЯП: python, html/css, JavaScript</li>
-          <li class="lib-django">Библиотека: django</li>
-          <li class="purpose-order">Цель: Заказ</li>
-        </div>
+        <h3 class="project-name">NoteFlow(Web-app)</h3>
+          <div class="description">
+            <li class="platform">In: WWW</li>
+            <li class="lang">On: Python/HTML/JS/CSS</li>
+            <li class="lib">Lib: Flask, sqlite</li>
+            <li class="purpose">Purpose: Order</li>
+          </div>
       </div>
+      </a>
+
       <div class="project-card">
-        <h3 class="parser">Бот-парсер и автопостер</h3>
-        <div class="parser-description">
-          <li class="platform-tg">Платформа: Телеграм</li>
-          <li class="pl-python">ЯП: python</li>
-          <li class="lib-bs4">Библиотека: beautifulsoup4, pyrogram</li>
-          <li class="purpose-for-me">Цель: Личный</li>
-        </div>
+        <h3 class="project-name">Parsing</h3>
+          <div class="description">
+            <li class="platform">In: Telegram, WWW</li>
+            <li class="lang">On: Python</li>
+            <li class="lib">Lib: BeautifulSoup4, Requests, Selenium</li>
+            <li class="purpose">Purpose: Order</li>
+          </div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-name">Autoposting</h3>
+          <div class="description">
+            <li class="platform">In: Telegram</li>
+            <li class="lang">On: Python</li>
+            <li class="lib">Lib: Pyrogram</li>
+            <li class="purpose">Purpose: Order</li>
+          </div>
       </div>
   </div>
 </div>
 
 <script>
-const translations = {
-  en: {
-    about: "About Me",
-    contacts: "Contacts",
-    projects: "Projects",
-    title: "ekz3ma",
-    aboutContent: "Hi, my name is ekz3ma and I have been specializing in professional python development for 4 years now. I create parsers, bots, websites, landing pages, and more.",
-    projectsTitle: "Projects",
-    botShop: "Shop-bot",
-    botVisitka: "Information bot for a law firm",
-    siteVisitka: "Business card website for an advertising agency",
-    parser: "Bot parser and autoposter",
-    platformTg: "Platform: Telegram",
-    plPython: "PL: Python",
-    purposeOrder: "Purpose: Order",
-    libBs4: "LIB: beautifulsoup4, pyrogram",
-    libDjango: "LIB: django",
-    platformWWW: "Platform: World Wide Web",
-    siteVisitkaPl: "PL: python, html/css, JavaScript",
-    purposeForMe: "Purpose: Personal",
-    libSqlite: "LIB: Aiogram3, sqlite",
-    libAiogram: "LIB: Aiogram3",
-  },
-  ru: {
-    about: "Обо мне",
-    contacts: "Контакты",
-    projects: "Проекты",
-    title: "ekz3ma",
-    aboutContent: "Привет, меня зовут ekz3ma и я специализируюсь на профессиональной python-разработке вот уже 4 года. Создаю парсеры, ботов, сайты, лендинги и прочее.",
-    projectsTitle: "Проекты",
-    botShop: "Бот-магазин",
-    botVisitka: "Информационный бот для юридической фирмы",
-    siteVisitka: "Сайт-визитка для рекламного агенства",
-    parser: "Бот-парсер и автопостер",
-    platformTg: "Платформа: Телеграм",
-    plPython: "ЯП: Python",
-    purposeOrder: "Цель: Заказ",
-    libBs4: "Библиотека: beautifulsoup4, pyrogram",
-    libDjango: "Библиотека: django",
-    platformWWW: "Платформа: Всемирная паутина",
-    siteVisitkaPl: "ЯП: python, html/css, JavaScript",
-    purposeForMe: "Цель: Личный",
-    libSqlite: "Библиотека: Aiogram3, sqlite",
-    libAiogram: "Библиотека: Aiogram3",
-  }
-};
-
-let currentLang = 'ru';
-
-function toggleLanguage() {
-  currentLang = currentLang === 'ru' ? 'en' : 'ru';
-  updateContent();
-  document.querySelector('.lang-switch').textContent = currentLang === 'ru' ? 'EN' : 'RU';
-}
-
-function updateContent() {
-  document.querySelector('.glitch').textContent = translations[currentLang].title;
-  document.querySelector('.about-me').textContent = translations[currentLang].about;
-  document.querySelector('.contacts-class').textContent = translations[currentLang].contacts;
-  document.querySelector('.projects-class').textContent = translations[currentLang].projects;
-  document.querySelector('.about-me-class').textContent = translations[currentLang].about;
-  document.querySelector('.description-about-me').textContent = translations[currentLang].aboutContent;
-  document.querySelector('.contacts-class-h').textContent = translations[currentLang].contacts;
-  document.querySelector('.projects-class-h').textContent = translations[currentLang].projectsTitle;
-  document.querySelector('.bot-shop').textContent = translations[currentLang].botShop;
-  document.querySelectorAll('.platform-tg').forEach(elem => elem.textContent = translations[currentLang].platformTg);
-  document.querySelectorAll('.pl-python').forEach(elem => elem.textContent = translations[currentLang].plPython);
-  document.querySelectorAll('.purpose-order').forEach(elem => elem.textContent = translations[currentLang].purposeOrder);
-  document.querySelector('.bot-visitka').textContent = translations[currentLang].botVisitka;
-  document.querySelector('.site-visitka').textContent = translations[currentLang].siteVisitka;
-  document.querySelector('.parser').textContent = translations[currentLang].parser;
-  document.querySelector('.lib-bs4').textContent = translations[currentLang].libBs4;
-  document.querySelector('.lib-django').textContent = translations[currentLang].libDjango;
-  document.querySelector('.platform-www').textContent = translations[currentLang].platformWWW;
-  document.querySelector('.site-visitka-pl').textContent = translations[currentLang].siteVisitkaPl;
-  document.querySelector('.purpose-for-me').textContent = translations[currentLang].purposeForMe;
-  document.querySelector('.lib-sql').textContent = translations[currentLang].libSqlite;
-  document.querySelector('.lib-aiogram').textContent = translations[currentLang].libAiogram;
-}
-
 function showSection(sectionId) {
   document.querySelectorAll('.section').forEach(section => {
     section.classList.remove('active');
